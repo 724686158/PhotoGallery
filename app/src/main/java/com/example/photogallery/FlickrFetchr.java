@@ -62,7 +62,7 @@ public class FlickrFetchr {
         try{
             String uri = Uri.parse("https://api.flickr.com/services/rest/")
                     .buildUpon()
-                    .appendQueryParameter("method", "flickr.photos.getRecent")
+                    .appendQueryParameter("method", "flickr.Photos.getRecent")
                     .appendQueryParameter("api_key", API_KEY)
                     .appendQueryParameter("format", "json")
                     .appendQueryParameter("nojsoncallback", "1")
@@ -84,7 +84,7 @@ public class FlickrFetchr {
 
     private void parseItems(List<GalleryItem> items, JSONObject jsonBody) throws IOException, JSONException
     {
-        JSONObject photosJsonObject = jsonBody.getJSONObject("photos");
+        JSONObject photosJsonObject = jsonBody.getJSONObject("Photos");
         JSONArray photoJsonArray = photosJsonObject.getJSONArray("photo");
         for (int i = 0; i < photoJsonArray.length(); i++) {
 
